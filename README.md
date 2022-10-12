@@ -50,3 +50,12 @@ Gitee移步到[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 1. 电脑需要安装 nodejs，[nodejs 下载地址](https://nodejs.org/zh-cn/download/)
 2. 安装 nodejs 时，傻瓜式安装 一直点下一步，不需要做任何选项的勾选。[可参考教程](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 3. 安装成功后，在项目根目录(app.js所在目录)，执行 node app.js 命令
+
+
+## 效果图
+<table>
+  <tr>
+    <td><img src="./morning/img/morning.jpg"/></td>
+    <td><img src="./noon/img/remind.jpg"/></td>
+  </tr>
+</table>
