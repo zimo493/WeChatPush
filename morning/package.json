@@ -1,0 +1,18 @@
+{
+  "name": "wx-push-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dayjs": "^1.11.5",
+    "express": "^4.18.1",
+    "node-schedule": "^2.1.0"
+  }
+}

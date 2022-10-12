@@ -1,0 +1,7 @@
+中午好！{{dearName.DATA}}
+
+{{dayluck.DATA}}
+
+{{yq_data.DATA}}
+
+彩虹屁：{{caihongpi.DATA}}
