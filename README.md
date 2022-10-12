@@ -4,7 +4,7 @@
 ## 项目介绍
 Node 项目（公众号推送早安问候、天气预报、星座运势、疫情数据）
 
-Gitee移步到[WeChatPush](https://github.com/zimo493/WeChatPush)
+GitHub移步到[WeChatPush](https://github.com/zimo493/WeChatPush) Gitee移步到[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 
 ## 准备工作
 1. 微信公众平台接口测试账号申请：[申请地址](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)
