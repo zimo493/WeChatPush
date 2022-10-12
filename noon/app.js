@@ -153,4 +153,4 @@ const scheduleCronstyle = () => {
     templateMessageSend(); // 定时器执行
   });
 }
-// scheduleCronstyle();
+scheduleCronstyle();
