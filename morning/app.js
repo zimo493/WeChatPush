@@ -249,7 +249,7 @@ const templateMessageSend = async () => {
   })
 }
 // 调用函数，推送模板消息
-// templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
+templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
 
 // 定时器（Cron）：定时推送消息
 const schedule = require('node-schedule');
