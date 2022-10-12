@@ -32,17 +32,11 @@ const getToken = async () => {
   return res.data.access_token;
 }
 
-/**
- * 获取今日运势(也可直接使用中文,例如：astro: '天蝎座') 
- * 
- * aries 白羊座, taurus 金牛座, gemini 双子座, cancer 巨蟹座
- * leo 狮子座, virgo 处女座 libra 天秤座, scorpio 天蝎座
- * sagittarius 射手座, capricorn 摩羯座, aquarius 水瓶座, pisces 双鱼座
- */
+// 获取今日运势
 const get_dayluck_data = async () => {
   let params = {
     key: config.tian_api,
-    astro: 'scorpio'
+    astro: config.constellation
   }
   let res = await axiosGet("http://api.tianapi.com/star/index", params);
   if (res.data.code !== 200) return console.log('获取今日运势失败！！');
