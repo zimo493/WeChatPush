@@ -114,7 +114,7 @@ const sweetNothings = async () => {
 }
 
 // 随机颜色
-const randomColor = () => "#" + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, "0")
+const randomColor = () => '#' + Math.floor(Math.random() * 0xffffff).toString(16);
 
 // 推送模板消息
 const templateMessageSend = async () => {
