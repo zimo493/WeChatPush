@@ -54,7 +54,7 @@ nodejs 项目（公众号推送早安问候、天气预报、星座运势、疫�
 3. 安装成功后，在项目根目录(app.js所在目录)，执行 node app.js 命令
 
 ### 早上推送
-![](./morning/img/morning.jpg)
+![](morning/img/morning.jpg)
 
 ### 今日提醒
-![](./noon/img/remind.jpg)
+![](noon/img/remind.jpg)
