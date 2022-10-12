@@ -7,7 +7,8 @@ nodejs 项目（公众号推送早安问候、天气预报、星座运势、疫�
 1. 微信公众平台接口测试账号申请：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
 2. 在 config.js 文件中，填写微信公众号信息
 3. 注册天行数据获取apikey(已注册略过) [注册地址](https://www.tianapi.com/signup.html)
-4. 在 config.js 文件中，配置天行数据apikey 申请"星座运势、早安心语、晚安心语、朋友圈文案、彩虹屁"这几个接口
+4. 天行数据申请"星座运势、早安心语、晚安心语、朋友圈文案、彩虹屁"这几个接口
+5. 在 config.js 文件中，配置天行数据apikey
 
 ## 早安推送模板内容如下
 ```text
