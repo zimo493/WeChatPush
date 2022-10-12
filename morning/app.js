@@ -30,7 +30,6 @@ const axiosPost = (url, params) => {
   });
 };
 
-
 // 获取token
 const getToken = async () => {
   const params = {
@@ -56,9 +55,7 @@ get_weather()
 
 // 获取天行数据
 const getTianHnag = async type => {
-  let params = {
-    key: config.tian_api
-  }
+  let params = { key: config.tian_api }
   let res = await axiosGet("http://api.tianapi.com/" + type, params)
   console.log(type + ':' + JSON.stringify(res.data.newslist));
   return res.data.newslist[0].content
@@ -68,27 +65,13 @@ const getTianHnag = async type => {
 const getCurrentDate = () => {
   let days = ""
   switch (dayjs().weekday()) { // 当前星期几
-    case 1:
-      days = '星期一';
-      break;
-    case 2:
-      days = '星期二';
-      break;
-    case 3:
-      days = '星期三';
-      break;
-    case 4:
-      days = '星期四';
-      break;
-    case 5:
-      days = '星期五';
-      break;
-    case 6:
-      days = '星期六';
-      break;
-    case 0:
-      days = '星期日';
-      break;
+    case 1: days = '星期一'; break;
+    case 2: days = '星期二'; break;
+    case 3: days = '星期三'; break;
+    case 4: days = '星期四'; break;
+    case 5: days = '星期五'; break;
+    case 6: days = '星期六'; break;
+    case 0: days = '星期日'; break;
   }
   return dayjs().format('YYYY-MM-DD') + " " + days
 }
@@ -109,6 +92,19 @@ const brthDate = brth => {
   return Math.ceil(days);
 }
 
+//判断是否为闰年(闰年366天 平年365天)
+const isLeap = year => ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? true : false;
+
+// 判断是否今天生日
+const get_birthday = birthday => {
+  let year = new Date().getFullYear();
+  let isl = isLeap(year);
+  let brth = brthDate(birthday.birthday);
+  if (isl && brth === 366 || !isl && brth === 365)
+    return `这是属于${birthday.name}特别的一天，生日快乐🎉`;
+  else return `距离${birthday.name}的生日还有${brth}天`;
+}
+
 // 土味情话
 const sweetNothings = async () => {
   let res = await axiosGet("https://api.1314.cool/words/api.php?return=json")
@@ -116,51 +112,32 @@ const sweetNothings = async () => {
   config.loveStr ? str = config.loveStr : str = res.data.word
   return str.replace(/<br>/g, "\n")
 }
-sweetNothings()
 
 // 随机颜色
-const randomColor = () => {
-  return "#" + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, "0")
-}
+const randomColor = () => "#" + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, "0")
 
-// 疫情数据
-const yq = async () => {
-  let params = {
-    city: config.city,
-  }
-  let res = await axiosGet("https://covid.myquark.cn/quark/covid/data", params)
-  let data = void 0;
-  if (["北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"].includes(config.city)) data = res.data.provinceData
-  else data = res.data.cityData
-  let sure_new_loc = `新增本土：${data.sure_new_loc}`;
-  let sure_new_hid = `新增无症状：${data.sure_new_hid}`;
-  let sure_cnt = `累计确诊：${data.sure_cnt}`;
-  let cure_cnt = `累计治愈：${data.cure_cnt}`;
-  let present = `现有确诊：${data.present === '-' ? 0 : data.present}`;
-  let danger = `中/高风险区：${data.danger["1"]}/${data.danger["2"]}`;
-  let statistics_time = res.data.time
-  return `${config.city}疫情数据，${sure_new_loc}，${sure_new_hid}，${sure_cnt}，${cure_cnt}，${present}，${danger}，${statistics_time}`
-}
+// 推送模板消息
 const templateMessageSend = async () => {
   const token = await getToken();
   const url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=' + token;
   // 天气信息
-  let weatherInfo = await get_weather()
+  let weatherInfo = await get_weather();
   // 计算在一起的天数
-  let together_day = dayjs().diff(config.love_date, "day")
+  let together_day = dayjs().diff(config.love_date, "day");
   // 每日情话
-  let loveStr = await sweetNothings()
+  let loveStr = await sweetNothings();
   // 早安寄语
   let zaoAn = await getTianHnag('zaoan');
   // 晚安寄语
   let wanAn = await getTianHnag('wanan');
   // 朋友圈文案
   let pyq = await getTianHnag('pyqwenan');
-  // 疫情数据
-  let yqData = await yq();
+  // 生日
+  let birthday1 = get_birthday(config.birthday1);
+  let birthday2 = get_birthday(config.birthday2);
   // 模板id 配置项
   const params = {
-    // touser: config.user,
+    // touser: config.user, // 后续遍历添加要发送的用户
     template_id: config.template_id,
     url: 'http://weixin.qq.com/download',
     topcolor: '#FF0000',
@@ -215,24 +192,14 @@ const templateMessageSend = async () => {
         value: weatherInfo.humidity,
         color: randomColor(),
       },
-      // 宝贝的名字
-      dearName: {
-        value: config.birthday1.name,
+      // 生日1
+      birthday1: {
+        value: birthday1,
         color: randomColor(),
       },
-      // 我的名字
-      myName: {
-        value: config.birthday2.name,
-        color: randomColor(),
-      },
-      // 距离宝贝生日
-      dearBrthDays: {
-        value: brthDate(config.birthday1.birthday),
-        color: randomColor(),
-      },
-      // 距离我的生日
-      myBrthDays: {
-        value: brthDate(config.birthday2.birthday),
+      // 生日2
+      birthday2: {
+        value: birthday2,
         color: randomColor(),
       },
       // 在一起的天数
@@ -240,12 +207,12 @@ const templateMessageSend = async () => {
         value: together_day,
         color: randomColor(),
       },
-      // 早安寄语
+      // 早安心语
       zaoan: {
         value: zaoAn,
         color: randomColor(),
       },
-      // 晚安寄语
+      // 晚安心语
       wanan: {
         value: wanAn,
         color: randomColor(),
@@ -255,17 +222,11 @@ const templateMessageSend = async () => {
         value: pyq,
         color: randomColor(),
       },
-      // 疫情数据
-      yq_data: {
-        value: yqData,
-        color: '#000'
-      },
       // 每日情话
       loveWords: {
         value: loveStr,
         color: randomColor(),
       },
-
     },
   };
   config.user.forEach(async item => {
@@ -288,7 +249,7 @@ const templateMessageSend = async () => {
   })
 }
 // 调用函数，推送模板消息
-templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
+// templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
 
 // 定时器（Cron）：定时推送消息
 const schedule = require('node-schedule');
@@ -298,4 +259,4 @@ const scheduleCronstyle = () => {
     templateMessageSend(); // 定时器执行
   });
 }
-// scheduleCronstyle();
+scheduleCronstyle();
