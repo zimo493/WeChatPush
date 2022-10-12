@@ -15,18 +15,15 @@ nodejs 项目（公众号推送早安问候、天气预报、星座运势、疫�
 所在地：{{city.DATA}}  {{weather.DATA}}  {{wind.DATA}}
 当前温度：{{temp.DATA}}
 今日温度：{{low.DATA}} ~ {{high.DATA}}
-空气质量：{{airQuality.DATA}}
-湿度：{{humidity.DATA}}
+湿度：{{humidity.DATA}} 空气质量：{{airQuality.DATA}}
 
 今天是我爱你的第{{loveDays.DATA}}天
-距离{{dearName.DATA}}的生日还有{{dearBrthDays.DATA}}天
-距离{{myName.DATA}}的生日还有{{myBrthDays.DATA}}天
+{{birthday1.DATA}}
+{{birthday2.DATA}}
 
 早安心语：{{zaoan.DATA}}
 晚安心语：{{wanan.DATA}}
 朋友圈文案：{{pyqwenan.DATA}}
-
-{{yq_data.DATA}}
 
 {{loveWords.DATA}}
 ```
@@ -37,7 +34,6 @@ nodejs 项目（公众号推送早安问候、天气预报、星座运势、疫�
 ## 今日提醒模板内容如下
 ```text
 中午好！{{dearName.DATA}}
-
 {{dayluck.DATA}}
 
 {{yq_data.DATA}}
