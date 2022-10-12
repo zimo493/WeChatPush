@@ -15,8 +15,8 @@ Node 项目（公众号推送早安问候、天气预报、星座运势、疫情
 ```text
 {{nowDate.DATA}}
 所在地：{{city.DATA}}  {{weather.DATA}}  {{wind.DATA}}
-当前温度：{{temp.DATA}}
-今日温度：{{low.DATA}} ~ {{high.DATA}}
+当前气温：{{temp.DATA}}
+今日气温：{{low.DATA}} ~ {{high.DATA}}
 湿度：{{humidity.DATA}} 空气质量：{{airQuality.DATA}}
 
 今天是我爱你的第{{loveDays.DATA}}天
