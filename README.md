@@ -43,7 +43,7 @@ nodejs 项目（公众号推送早安问候、天气预报、星座运势、疫�
 ```  
 
 ## 如何运行
-执行 node app.js 命令，启动项目即可实现消息推送
+终端执行 node app.js 命令，启动项目即可实现消息推送
 
 ## 小白可能需要看的
 1. 电脑需要安装 nodejs，[nodejs 下载地址](https://nodejs.org/zh-cn/download/)
