@@ -22,7 +22,7 @@ Gitee移步到[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 今日气温：{{low.DATA}} ~ {{high.DATA}}
 湿度：{{humidity.DATA}} 空气质量：{{airQuality.DATA}}
 
-今天是我爱你的第{{loveDays.DATA}}天
+今天是我们恋爱的第{{loveDays.DATA}}天
 {{birthday1.DATA}}
 {{birthday2.DATA}}
 
