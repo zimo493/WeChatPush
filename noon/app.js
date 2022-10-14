@@ -1,4 +1,4 @@
-const { app_id, app_secret, city, constellation, template_id, tian_api, user: { forEach }, user_name } = require("./config")
+const { app_id, app_secret, city, constellation, template_id, tian_api, user, user_name } = require("./config")
 const axios = require('axios');
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -84,7 +84,7 @@ const templateMessageSend = async () => {
       caihongpi: { value: caihongpi_data, color: randomColor(), }
     },
   };
-  forEach(async item => {
+  for (const item of user) {
     params.touser = item;
     let { data: { errcode } } = await axiosPost(url, params);
     console.log({
@@ -93,7 +93,7 @@ const templateMessageSend = async () => {
       40037: "推送消息失败! 请检查模板id是否正确",
       0: `${item}: 推送消息成功`,
     }[errcode]);
-  })
+  }
 }
 // 调用函数，推送模板消息
 // templateMessageSend(); // 第一次执行程序时会推送一次消息
