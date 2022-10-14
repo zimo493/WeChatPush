@@ -4,8 +4,9 @@
 ## 项目介绍
 Node 项目（公众号推送早安问候、天气预报、星座运势、疫情数据）
 
-GitHub移步到[WeChatPush](https://github.com/zimo493/WeChatPush)
-Gitee移步到[WeChatPush](https://gitee.com/zimo493/WeChatPush)
+GitHub移步到：[WeChatPush](https://github.com/zimo493/WeChatPush)
+
+Gitee移步到：[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 
 详细教程：[详细教程](https://mp.weixin.qq.com/s/5Yv_0rP34y9AfLZf3R7ppg)
 
