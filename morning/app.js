@@ -1,4 +1,4 @@
-const { app_id, app_secret, birthday1, birthday2, city, loveStr, love_date, template_id, tian_api, user: { forEach } } = require("./config")
+const { app_id, app_secret, birthday1, birthday2, city, loveStr, love_date, template_id, tian_api, user } = require("./config")
 const axios = require('axios');
 
 // 导入 dayjs 模块
@@ -143,7 +143,7 @@ const templateMessageSend = async () => {
       loveWords: { value: loveStr, color: randomColor(), },
     },
   };
-  forEach(async item => {
+  for (const item of user) {
     params.touser = item;
     let { data: { errcode } } = await axiosPost(url, params);
     console.log({
@@ -152,7 +152,7 @@ const templateMessageSend = async () => {
       40037: "推送消息失败! 请检查模板id是否正确",
       0: `${item}: 推送消息成功`,
     }[errcode]);
-  })
+  }
 }
 // 调用函数，推送模板消息
 // templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
