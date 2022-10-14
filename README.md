@@ -7,6 +7,8 @@ Node 项目（公众号推送早安问候、天气预报、星座运势、疫情
 GitHub移步到[WeChatPush](https://github.com/zimo493/WeChatPush)
 Gitee移步到[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 
+详细教程见公众号👉胡子陌 [详细教程](https://mp.weixin.qq.com/s/5Yv_0rP34y9AfLZf3R7ppg)
+
 ## 准备工作
 1. 微信公众平台接口测试账号申请：[申请地址](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)
 2. 在 config.js 文件中，填写微信公众号信息
