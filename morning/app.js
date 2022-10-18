@@ -76,9 +76,9 @@ const isLeap = year => year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? tru
 
 // 判断是否今天生日
 const get_birthday = user => {
-  let isl = isLeap(new Date().getFullYear());
+  // let isl = isLeap(new Date().getFullYear());
   let brth = brthDate(user.birthday);
-  return isl && brth === 366 || !isl && brth === 365 ? `这是属于${user.name}特别的一天，生日快乐🎉🎉` : `距离${user.name}的生日还有${brth}天`;
+  return brth === 366 || brth === 365 ? `这是属于${user.name}特别的一天，生日快乐🎉🎉` : `距离${user.name}的生日还有${brth}天`;
 }
 
 // 土味情话
