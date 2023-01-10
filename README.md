@@ -60,6 +60,7 @@ Gitee移步到：[WeChatPush](https://gitee.com/zimo493/WeChatPush)
 <table>
   <tr>
     <td><img src="https://mmbiz.qpic.cn/mmbiz_png/dRGAo8vX6BH5opCRU6V2V65qAcibrZzuuWeticib2Wm4ucJqzNzGM4RYiaR7Jk9VASBNsCYyXQE6EUiao7BAIjGXakQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"/></td>
+    <td></td>
   </tr>
 </table>
 
